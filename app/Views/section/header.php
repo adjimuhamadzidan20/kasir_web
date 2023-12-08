@@ -9,7 +9,7 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>E - Kasir | <?= $title; ?></title>
+    <title>E-Kasir | <?= $title; ?></title>
     
     <base href="<?= base_url('assets'); ?>/">
     <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
@@ -39,7 +39,7 @@
     <link href="css/examples.css" rel="stylesheet">
 
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="css/dataTables.bootstrap5.min.css">
     
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
@@ -56,4 +56,10 @@
       gtag('config', 'UA-118965717-5');
     </script>
     <!-- <link href="vendors/@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet"> -->
+
+    <style type="text/css">
+      .sidebar-brand-full, .sidebar-brand-narrow {
+        font-family: Consolas, "Lucida Console", Monaco, monospace !important;
+      }
+    </style>
   </head>

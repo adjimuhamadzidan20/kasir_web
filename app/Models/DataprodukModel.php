@@ -61,4 +61,18 @@ class DataprodukModel extends Model
     public function deleteProduk($id) {
         return $this->delete($id);
     }
+
+    public function jumlahProduk() {
+        $sql = "SELECT * FROM data_produk";
+        $res = $this->query($sql);
+        return $res->getNumRows();
+    }
+
+    public function filterProduk($jen) {
+        $sql = "SELECT data_produk.id_produk, data_produk.nama_produk, data_kategori.kategori, data_produk.harga_satuan, 
+        data_produk.jumlah_stok, CONCAT ('PR0', id_produk) AS kode FROM data_produk INNER JOIN data_kategori ON 
+        data_produk.id_kategori = data_kategori.id_kategori WHERE kategori LIKE '%$jen%'";
+        
+        return $this->query($sql)->getResultArray();
+    }
 }

@@ -48,5 +48,10 @@ class DatakategoriModel extends Model
     public function deleteKategori($id) {
         return $this->delete($id);
     }
-    
+
+    public function jumlahKategori() {
+        $sql = "SELECT * FROM data_kategori";
+        $res = $this->query($sql);
+        return $res->getNumRows();
+    }
 }

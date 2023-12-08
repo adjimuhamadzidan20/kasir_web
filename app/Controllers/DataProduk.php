@@ -36,9 +36,17 @@ class DataProduk extends BaseController
         $kategori = $this->request->getPost('kategori');
         $harga = $this->request->getPost('hargasatuan');
         $jumlah = $this->request->getPost('jumlahstok');
-
-        $this->produkModel->addProduk($kode, $produk, $kategori, $harga, $jumlah);
-        return redirect()->to('/data_produk');
+        $res = $this->produkModel->addProduk($kode, $produk, $kategori, $harga, $jumlah);
+        
+        if ($res) {
+            $pesan = 'Produk berhasil tersimpan!';
+            session()->setFlashData('sukses', $pesan);
+            return redirect()->to('/data_produk');
+        } else {
+            $pesan = 'Produk gagal tersimpan!';
+            session()->setFlashData('gagal', $pesan);
+            return redirect()->to('/data_produk');
+        }   
     }
 
     public function editproduk($id) {
@@ -46,7 +54,8 @@ class DataProduk extends BaseController
         $getKategori = $this->kategoriModel->fetchKategori();
 
         $data = [
-            'title' => 'Kategori',
+            'title' => 'Edit Produk',
+            'title2' => 'Data produk',
             'produk' => $getIdProduk,
             'kategori' => $getKategori
         ];
@@ -63,13 +72,30 @@ class DataProduk extends BaseController
         $kategori = $this->request->getPost('kategori');
         $harga = $this->request->getPost('hargasatuan');
         $jumlah = $this->request->getPost('jumlahstok');
-
-        $this->produkModel->updateProduk($id, $kode, $produk, $kategori, $harga, $jumlah);
-        return redirect()->to('/data_produk');
+        $res = $this->produkModel->updateProduk($id, $kode, $produk, $kategori, $harga, $jumlah);
+        
+        if ($res) {
+            $pesan = 'Produk berhasil terubah!';
+            session()->setFlashData('sukses', $pesan);
+            return redirect()->to('/data_produk');
+        } else {
+            $pesan = 'Produk gagal terubah!';
+            session()->setFlashData('gagal', $pesan);
+            return redirect()->to('/data_produk');
+        }
     }
 
     public function hapusproduk($id) {
-        $this->produkModel->deleteProduk($id);
-        return redirect()->to('/data_produk');
+        $res = $this->produkModel->deleteProduk($id);
+
+        if ($res) {
+            $pesan = 'Produk berhasil terhapus!';
+            session()->setFlashData('sukses', $pesan);
+            return redirect()->to('/data_produk');
+        } else {
+            $pesan = 'Produk gagal terhapus!';
+            session()->setFlashData('gagal', $pesan);
+            return redirect()->to('/data_produk');
+        }
     }
 }

@@ -46,7 +46,7 @@ class Transaksi extends BaseController
         $harga = $this->request->getPost('harga');
         $qty = $this->request->getPost('qty');
         $total = $harga * $qty;
-
+        
         $data = $this->transaksiModel->addList($produk, $harga, $qty, $total);
         return $this->response->setJSON($data);
     }
@@ -60,7 +60,6 @@ class Transaksi extends BaseController
         $data = $this->transaksiModel->hitungTotal();
         $total = array_sum(array_column($data, 'total'));
         return $this->response->setJSON(['jumlah' => $total]);
-
     }
 
     public function resetList() {

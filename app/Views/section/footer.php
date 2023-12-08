@@ -1,22 +1,22 @@
     <footer class="footer">
-      <div>E - Kasir © 2023 creativeLabs.</div>
+      <div>E-Kasir © 2023</div>
       <div class="ms-auto">Powered by&nbsp;<a href="https://coreui.io/docs/">CoreUI UI Components</a></div>
     </footer>
   </div>
 
   <!-- CoreUI and necessary plugins-->
-  <script src="vendors/@coreui/coreui/js/coreui.bundle.min.js"></script>
-  <script src="vendors/simplebar/js/simplebar.min.js"></script>
+  <script src="<?= base_url('assets'); ?>/vendors/@coreui/coreui/js/coreui.bundle.min.js"></script>
+  <script src="<?= base_url('assets'); ?>/vendors/simplebar/js/simplebar.min.js"></script>
   <!-- Plugins and scripts required by this view-->
   <!-- <script src="vendors/chart.js/js/chart.min.js"></script>
   <script src="vendors/@coreui/chartjs/js/coreui-chartjs.js"></script>
   <script src="vendors/@coreui/utils/js/coreui-utils.js"></script> -->
-  <script src="js/main.js"></script>
+  <script src="<?= base_url('assets'); ?>/js/main.js"></script>
 
   <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.js"></script> -->
-  <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+  <script type="text/javascript" src="<?= base_url('assets'); ?>/js/jquery-3.6.0.js"></script>
+  <script type="text/javascript" src="<?= base_url('assets'); ?>/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="<?= base_url('assets'); ?>/js/dataTables.bootstrap5.min.js"></script>
 
   <script>
     new DataTable('#example');
@@ -82,24 +82,39 @@
     // menambahkan data baru
     $('#submit_list').click(function() {
       let formdata = $('#formList').serialize();
+      let qty = $('#qty').val();
 
-      $.ajax({
-        type: "POST",
-        url: "<?= base_url('transaksi/simpanList'); ?>",
-        dataType: "json",
-        data: formdata,
-        success: function (response) {                      
-          $('#produk').val('');
-          $('#harga').val(0);
-          $('#qty').val('');
+      if (qty == "") {
+        let pesan = 'Masukan jumlah Qty!';
+        let popup = '<div class="alert alert-info small" role="alert" id="pesan">'+ pesan +'</div>';
+        $('#msg').html(popup);
 
-          updateTabel(response);
-          listTransaksi();
-        },
-        error: function () {
-          console.log('Gagal submit data.');
+        function qtyAlert() {
+          $('#msg').fadeOut(1000);
         }
-      });
+        setTimeout(function() {
+          qtyAlert();
+        }, 1500);
+      } 
+      else {
+        $.ajax({
+          type: "POST",
+          url: "<?= base_url('transaksi/simpanList'); ?>",
+          dataType: "json",
+          data: formdata,
+          success: function (response) {
+            $('#produk').val('');
+            $('#harga').val(0);
+            $('#qty').val('');
+
+            updateTabel(response);
+            listTransaksi();     
+          },
+          error: function () {
+            console.log('Gagal submit data.');
+          }
+        });
+      }
     });
 
     // menghapus data
@@ -159,19 +174,32 @@
       let total = $('#jumlah').text();
       let tunai = $('#tunai').val();
       let jumlah = tunai - total;
-
-      // console.log(parseInt(total))
-      // console.log(parseInt(tunai))
-      // console.log(jumlah)
-
       let totalInt = parseInt(total);
       let tunaiInt = parseInt(tunai);
 
       if (tunai == "") {
-        alert('Masukan nominal tunai!');
+        let pesan = 'Masukan nominal tunai!';
+        let popup = '<div class="alert alert-info small" role="alert" id="pesan">'+ pesan +'</div>';
+        $('#msg').html(popup);
+
+        function nominalAlert() {
+          $('#msg').fadeOut(1000);
+        }
+        setTimeout(function() {
+          nominalAlert();
+        }, 1500);
       } 
       else if (tunaiInt < totalInt) {
-        alert('Tunai pembayaran kurang dari jumlah total!');
+        let pesan = 'Tunai pembayaran kurang dari jumlah total!';
+        let popup = '<div class="alert alert-info small" role="alert" id="pesan">'+ pesan +'</div>';
+        $('#msg').html(popup);
+
+        function tunaiAlert() {
+          $('#msg').fadeOut(1000);
+        }
+        setTimeout(function() {
+          tunaiAlert();
+        }, 1500);
       } 
       else if (tunaiInt > totalInt || tunaiInt == totalInt) {
         $('#kembalian').text(jumlah);
@@ -180,9 +208,56 @@
         $('#tunai_kembali').text(jumlah);
 
         $('#popup_bayar').modal('show');
+
       }
     });
+
+    $('#transaksi_done').on('click', function() {
+      let formTunai = $('#pembayaran').serialize();
+
+      $.ajax({
+        url: '<?= base_url('laporanpemasukan/tambahPemasukan'); ?>',
+        type: 'POST',
+        dataType: 'json',
+        data: formTunai,
+        success: function() {
+          console.log('pemasukan masuk')
+        },
+        error: function() {
+          console.log('pemasukan gagal')
+        }
+      })
+    });
     
+  </script>
+
+  <!-- settingan alert -->
+  <script type="text/javascript">
+    let notif = document.getElementById('pesan');
+    if (notif.style.display = 'block') {
+      setTimeout(function() {
+        notif.style.opacity = '0'
+        notif.style.transition = 'opacity 1s ease-in-out';
+        setTimeout(function() {
+            notif.style.display = 'none';
+        }, 1000)
+      }, 1000);
+    }
+  </script>
+
+  <script type="text/javascript">
+    $(function () {
+      $('#exampleLaporan').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+    });
+
   </script>
 
 </body>

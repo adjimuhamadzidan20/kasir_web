@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use CodeIgniter\Models;
 use App\Models\DatakategoriModel;
 
 class DataKategori extends BaseController
@@ -30,14 +29,24 @@ class DataKategori extends BaseController
     public function tambah() {
         $kode = 'KAT0';
         $kategori = $this->request->getPost('kategori');
-        $this->kategoriModel->addKategori($kode, $kategori);
-        return redirect()->to('/data_kategori');
+        $res = $this->kategoriModel->addKategori($kode, $kategori);
+
+        if ($res) {
+            $pesan = 'Kategori berhasil tersimpan!';
+            session()->setFlashData('sukses', $pesan);
+            return redirect()->to('/data_kategori');
+        } else {
+            $pesan = 'Kategori gagal tersimpan!';
+            session()->setFlashData('gagal', $pesan);
+            return redirect()->to('/data_kategori');
+        }
     }
 
     public function editkategori($id) {
         $getKategori = $this->kategoriModel->fetchIdKategori($id)->getRow();
         $data = [
-            'title' => 'Kategori',
+            'title' => 'Edit Kategori',
+            'title2' => 'Data Kategori',
             'kategori' => $getKategori
         ];
 
@@ -50,13 +59,30 @@ class DataKategori extends BaseController
     public function edit($id) {
         $kode = $this->request->getPost('kategori');
         $kategori = $this->request->getPost('kategori');
-
-        $this->kategoriModel->updateKategori($id, $kode, $kategori);
-        return redirect()->to('/data_kategori');
+        $res = $this->kategoriModel->updateKategori($id, $kode, $kategori);
+        
+        if ($res) {
+            $pesan = 'Kategori berhasil terubah!';
+            session()->setFlashData('sukses', $pesan);
+            return redirect()->to('/data_kategori');
+        } else {
+            $pesan = 'Kategori gagal terubah!';
+            session()->setFlashData('gagal', $pesan);
+            return redirect()->to('/data_kategori');
+        }
     }
 
     public function hapuskategori($id) {
-        $this->kategoriModel->deleteKategori($id);
-        return redirect()->to('/data_kategori');
+        $res = $this->kategoriModel->deleteKategori($id);
+
+        if ($res) {
+            $pesan = 'Kategori berhasil terhapus!';
+            session()->setFlashData('sukses', $pesan);
+            return redirect()->to('/data_kategori');
+        } else {
+            $pesan = 'Kategori gagal terhapus!';
+            session()->setFlashData('gagal', $pesan);
+            return redirect()->to('/data_kategori');
+        }
     }
 }
