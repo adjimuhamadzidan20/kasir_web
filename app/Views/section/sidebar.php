@@ -20,29 +20,29 @@
 
     <li class="nav-item"><a class="nav-link" href="/data_kategori">
         <svg class="nav-icon">
-          <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-notes"></use>
+          <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-list-rich"></use>
         </svg> Data Kategori</a>
     </li>
 
     <li class="nav-item"><a class="nav-link" href="/data_produk">
         <svg class="nav-icon">
-          <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-notes"></use>
+          <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-storage"></use>
         </svg> Data Produk</a>
     </li>
 
     <li class="nav-item"><a class="nav-link" href="/transaksi">
         <svg class="nav-icon">
-          <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-notes"></use>
+          <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-money"></use>
         </svg> Transaksi</a>
     </li>
 
     <li class="nav-group"><a class="nav-link nav-group-toggle">
       <svg class="nav-icon">
-        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-notes"></use>
+        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-clipboard"></use>
       </svg> Laporan</a>
     <ul class="nav-group-items">
-      <li class="nav-item"><a class="nav-link" href="/laporan_produk"> Produk</a></li>
-      <li class="nav-item"><a class="nav-link" href="/laporan_pemasukan"> Pemasukan</a></li>
+      <li class="nav-item"><a class="nav-link" href="/laporan_produk">Produk</a></li>
+      <li class="nav-item"><a class="nav-link" href="/laporan_pemasukan">Pemasukan</a></li>
     </ul>
   </li>
 

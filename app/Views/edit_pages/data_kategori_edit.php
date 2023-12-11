@@ -9,7 +9,7 @@
           <div class="row mb-2">
             <div class="col d-flex justify-content-between">
               <h3><?= $title; ?></h3>
-              <div class="path d-flex align-items-center">
+              <div class="path d-none d-sm-flex align-items-center">
                 <div>
                   <ol class="breadcrumb my-0 ms-2">
                     <li class="breadcrumb-item active">

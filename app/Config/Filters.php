@@ -26,7 +26,8 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'administrator' => \App\Filters\Administrator::class,
-        'visitor'       => \App\Filters\Visitor::class
+        'visitor'       => \App\Filters\Visitor::class,
+        'lock'          => \App\Filters\Lockscreen::class
     ];
 
     /**

@@ -9,7 +9,7 @@
           <div class="row mb-2">
             <div class="col d-flex justify-content-between">
               <h3>Data <?= $title; ?></h3>
-              <div class="path d-flex align-items-center">
+              <div class="path d-none d-sm-flex align-items-center">
                 <div>
                   <ol class="breadcrumb my-0 ms-2">
                     <li class="breadcrumb-item active">
@@ -28,8 +28,8 @@
             <div class="col">
               <div class="card mb-4 rounded-0">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                  <button type="button" class="btn btn-primary btn-sm px-3" data-coreui-toggle="modal" data-coreui-target="#tambahKategori">Tambah</button>
-                  Tabel Data Kategori
+                  <button type="button" class="btn btn-primary btn-sm px-3" data-coreui-toggle="modal" data-coreui-target="#tambahKategori">Tambah<i class="cil-plus icon ms-1"></i></button>
+                  <span class="d-none d-sm-flex">Tabel Data Kategori</span>
                 </div>
                 <div class="card-body">                  
                   <div class="example">
@@ -48,14 +48,14 @@
                     <?php endif; ?>
                   
                     <div class="rounded-bottom">
-                      <div class="tab-pane active preview" role="tabpanel" id="preview-557">
+                      <div class="tab-pane active preview table-responsive" role="tabpanel" id="preview-557">
                         <table class="table table-bordered" id="example">
                           <thead>
                             <tr>
-                              <th scope="col">No</th>
-                              <th scope="col">Kode</th>
-                              <th scope="col">Kategori Produk</th>
-                              <th scope="col" class="text-center">Opsi</th>
+                              <th scope="col" nowrap="nowrap">No</th>
+                              <th scope="col" nowrap="nowrap">Kode</th>
+                              <th scope="col" nowrap="nowrap">Kategori Produk</th>
+                              <th scope="col" nowrap="nowrap" class="text-center">Opsi</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -65,12 +65,12 @@
                               $no++;
                             ?>
                               <tr>
-                                <td><?= $no; ?></td>
-                                <td><?= $data['kode']; ?></td>
-                                <td><?= $data['kategori']; ?></td>
-                                <td class="text-center">
-                                  <a href="/edit_kategori/<?= $data['id_kategori']; ?>" class="btn btn-primary btn-sm">Edit</a>
-                                  <a href="/hapus_kategori/<?= $data['id_kategori']; ?>" class="btn btn-primary btn-sm">Hapus</a>
+                                <td nowrap="nowrap"><?= $no; ?></td>
+                                <td nowrap="nowrap"><?= $data['kode']; ?></td>
+                                <td nowrap="nowrap"><?= $data['kategori']; ?></td>
+                                <td nowrap="nowrap" class="text-center">
+                                  <a href="/edit_kategori/<?= $data['id_kategori']; ?>" class="btn btn-primary btn-sm"><i class="cil-color-border icon me-1"></i>Edit</a>
+                                  <a href="/hapus_kategori/<?= $data['id_kategori']; ?>" class="btn btn-primary btn-sm"><i class="cil-trash icon me-1"></i>Hapus</a>
                                 </td>
                               </tr>
                             <?php endforeach; ?>

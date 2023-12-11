@@ -16,4 +16,15 @@ class LoginModel extends Model
     public function getAdmin($user) {
         return $this->where('username', $user)->first();
     }
+
+    public function getPass($pass) {
+        $sandi = md5($pass);
+        return $this->where('password', $sandi)->first();
+    }
+
+    public function gantiPass($user, $pass) {
+        $sandi = md5($pass);
+        $sql = "UPDATE admin SET password = '$sandi' WHERE username = '$user'";
+        return $this->query($sql);
+    }
 }

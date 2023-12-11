@@ -9,7 +9,7 @@
           <div class="row mb-2">
             <div class="col d-flex justify-content-between">
               <h3><?= $title; ?></h3>
-              <div class="path d-flex align-items-center">
+              <div class="path d-none d-sm-flex align-items-center">
                 <div>
                   <ol class="breadcrumb my-0 ms-2">
                     <li class="breadcrumb-item active">
@@ -27,11 +27,11 @@
           <div class="row">
             <div class="col">
               <div class="card mb-4 rounded-0">
-                <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card-header d-block d-sm-flex justify-content-between align-items-center">
                   <div class="nama-page">
                     Laporan Data Pemasukan
                   </div>
-                  <div class="opsi">
+                  <div class="opsi mt-2 mt-sm-0">
                     <?php 
                       if (isset($_GET['bulan']) OR isset($_GET['tahun'])) {
                         $bulan = $_GET['bulan'];
@@ -49,9 +49,10 @@
                   <div class="example">
                     <div class="rounded-bottom">
                       <div class="tab-pane active preview" role="tabpanel" id="preview-557">
+
                         <form method="get">
-                          <div class="opsi d-flex mb-3 justify-content-between">
-                            <div class="kolom-filter d-flex col-4">
+                          <div class="opsi d-block d-lg-flex mb-3 justify-content-between">
+                            <div class="kolom-filter d-flex col col-lg-4">
                               <select class="form-select" aria-label="Default select example" name="bulan" style="margin-right: 10px !important;">
                                 <option value="" selected>-- Pilih Bulan --</option>
                                 <option value="Jan">Januari</option>
@@ -81,36 +82,39 @@
                               </select>
                               <button type="submit" class="btn btn-primary btn-sm ml-4">Filter</button>
                             </div>
-                            <div class="kolom-jumlah d-flex align-items-center">
+                            <div class="kolom-jumlah d-block d-lg-flex align-items-center mt-3 mt-lg-0">
                               <label for="exampleFormControlInput1" style="margin-right: 8px !important;">Total</label>
-                              <input type="text" class="form-control" id="total" placeholder="Jumlah Total" value="<?= $total; ?>" readonly>
+                              <input type="text" class="form-control mt-1 mt-lg-0" id="total" placeholder="Jumlah Total" value="<?= $total; ?>" readonly>
                             </div>
                           </div>
                         </form>
-                        <table class="table" id="exampleLaporan">
-                          <thead>
-                            <tr>
-                              <th scope="col">No</th>
-                              <th scope="col">Tanggal Pemasukan</th>
-                              <th scope="col">Bulan Pemasukan</th>
-                              <th scope="col">Jumlah Nominal</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <?php  
-                              $no = 0;
-                              foreach ($pemasukan as $data) :
-                              $no++;
-                            ?>
+
+                        <div class="table-responsive">
+                          <table class="table" id="exampleLaporan">
+                            <thead>
                               <tr>
-                                <td><?= $no; ?></td>
-                                <td><?= $data['tanggal_pemasukan']; ?></td>
-                                <td><?= $data['bulan_pemasukan']; ?></td>
-                                <td><?= $data['jumlah_nominal']; ?></td>
+                                <th scope="col" nowrap="nowrap">No</th>
+                                <th scope="col" nowrap="nowrap">Tanggal Pemasukan</th>
+                                <th scope="col" nowrap="nowrap">Bulan Pemasukan</th>
+                                <th scope="col" nowrap="nowrap">Jumlah Nominal</th>
                               </tr>
-                            <?php endforeach; ?>
-                          </tbody>
-                        </table>
+                            </thead>
+                            <tbody>
+                              <?php  
+                                $no = 0;
+                                foreach ($pemasukan as $data) :
+                                $no++;
+                              ?>
+                                <tr>
+                                  <td nowrap="nowrap"><?= $no; ?></td>
+                                  <td nowrap="nowrap"><?= $data['tanggal_pemasukan']; ?></td>
+                                  <td nowrap="nowrap"><?= $data['bulan_pemasukan']; ?></td>
+                                  <td nowrap="nowrap"><?= $data['jumlah_nominal']; ?></td>
+                                </tr>
+                              <?php endforeach; ?>
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
                     </div>
                   </div>

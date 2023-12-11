@@ -1,6 +1,6 @@
     <footer class="footer">
       <div>E-Kasir © 2023</div>
-      <div class="ms-auto">Powered by&nbsp;<a href="https://coreui.io/docs/">CoreUI UI Components</a></div>
+      <div class="ms-auto d-none d-sm-block">Powered by&nbsp;<a href="https://coreui.io/docs/">CoreUI UI Components</a></div>
     </footer>
   </div>
 
@@ -62,12 +62,12 @@
             let html = '';
             for (let i = 0; i < data.length; i++) {
               html += '<tr>' +
-                '<td>' + data[i].nama_produk + '</td>' +
-                '<td>' + data[i].harga + '</td>' +
-                '<td>' + data[i].qty + '</td>' +
-                '<td>' + data[i].total + '</td>' +
-                '<td style="text-align: center;">' +
-                  '<button type="button" id="hapus" class="btn btn-primary btn-sm" data-id="' + data[i].id_transaksi + '">Hapus</button>' +
+                '<td nowrap="nowrap">' + data[i].nama_produk + '</td>' +
+                '<td nowrap="nowrap">' + data[i].harga + '</td>' +
+                '<td nowrap="nowrap">' + data[i].qty + '</td>' +
+                '<td nowrap="nowrap">' + data[i].total + '</td>' +
+                '<td nowrap="nowrap" style="text-align: center;">' +
+                  '<button type="button" id="hapus" class="btn btn-primary btn-sm" data-id="' + data[i].id_transaksi + '"><i class="cil-trash icon me-1"></i>Hapus</button>' +
                 '</td>' +
               '</tr>';
             }
@@ -140,11 +140,11 @@
     function updateTabel(data) {
       let tabelUpdate = '';
       tabelUpdate += '<tr>' +
-                  '<td>' + data.nama_produk + '</td>' +
-                  '<td>' + data.harga + '</td>' +
-                  '<td>' + data.qty + '</td>' +
-                  '<td>' + data.total + '</td>' +
-                  '<td style="text-align: center;">' +
+                  '<td nowrap="nowrap">' + data.nama_produk + '</td>' +
+                  '<td nowrap="nowrap">' + data.harga + '</td>' +
+                  '<td nowrap="nowrap">' + data.qty + '</td>' +
+                  '<td nowrap="nowrap">' + data.total + '</td>' +
+                  '<td nowrap="nowrap" style="text-align: center;">' +
                     '<button type="submit" id="hapus" class="btn btn-primary btn-sm" data-id="' + data.id_transaksi + '">Hapus</button>' +
                   '</td>' +
                 '</tr>';

@@ -30,7 +30,8 @@ class Login extends BaseController
         if ($admin) {
             if ($admin['password'] == md5($password)) {
                 $user = [
-                    'admin' => $admin['nama_admin']
+                    'admin' => $admin['nama_admin'],
+                    'user' => $admin['username'],
                 ];
 
                 session()->set($user);

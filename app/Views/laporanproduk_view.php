@@ -9,7 +9,7 @@
           <div class="row mb-2">
             <div class="col d-flex justify-content-between">
               <h3><?= $title; ?></h3>
-              <div class="path d-flex align-items-center">
+              <div class="path d-none d-sm-flex align-items-center">
                 <div>
                   <ol class="breadcrumb my-0 ms-2">
                     <li class="breadcrumb-item active">
@@ -27,11 +27,11 @@
           <div class="row">
             <div class="col">
               <div class="card mb-4 rounded-0">
-                <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card-header d-block d-sm-flex justify-content-between align-items-center">
                   <div class="nama-page">
                     Laporan Data Produk
                   </div>
-                  <div class="opsi">
+                  <div class="opsi mt-2 mt-sm-0">
                     <?php 
                       if (isset($_GET['jenis'])) {
                         $jenis = $_GET['jenis'];
@@ -47,9 +47,10 @@
                   <div class="example">
                     <div class="rounded-bottom">
                       <div class="tab-pane active preview" role="tabpanel" id="preview-557">
+
                         <form method="get">
                           <div class="opsi d-flex mb-3 justify-content-between">
-                            <div class="kolom-filter d-flex col-4">
+                            <div class="kolom-filter d-flex col col-lg-4">
                               <select class="form-select" aria-label="Default select example" name="jenis" style="margin-right: 10px !important;">
                                 <option value="" selected>-- Pilih Kategori --</option>
                                 <?php foreach ($kategori as $data) : ?>
@@ -60,34 +61,37 @@
                             </div>
                           </div>
                         </form>
-                        <table class="table" id="exampleLaporan">
-                          <thead>
-                            <tr>
-                              <th scope="col">No</th>
-                              <th scope="col">Kode</th>
-                              <th scope="col">Nama Produk</th>
-                              <th scope="col">Kategori</th>
-                              <th scope="col">Harga Satuan</th>
-                              <th scope="col">Jumlah Stok</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <?php  
-                              $no = 0;
-                              foreach ($produk as $data) :
-                              $no++;
-                            ?>
+
+                        <div class="table-responsive">
+                          <table class="table" id="exampleLaporan">
+                            <thead>
                               <tr>
-                                <td><?= $no; ?></td>
-                                <td><?= $data['kode']; ?></td>
-                                <td><?= $data['nama_produk']; ?></td>
-                                <td><?= $data['kategori']; ?></td>
-                                <td><?= $data['harga_satuan']; ?></td>
-                                <td><?= $data['jumlah_stok']; ?></td>
+                                <th scope="col" nowrap="nowrap">No</th>
+                                <th scope="col" nowrap="nowrap">Kode</th>
+                                <th scope="col" nowrap="nowrap">Nama Produk</th>
+                                <th scope="col" nowrap="nowrap">Kategori</th>
+                                <th scope="col" nowrap="nowrap">Harga Satuan</th>
+                                <th scope="col" nowrap="nowrap">Jumlah Stok</th>
                               </tr>
-                            <?php endforeach; ?>
-                          </tbody>
-                        </table>
+                            </thead>
+                            <tbody>
+                              <?php  
+                                $no = 0;
+                                foreach ($produk as $data) :
+                                $no++;
+                              ?>
+                                <tr>
+                                  <td nowrap="nowrap"><?= $no; ?></td>
+                                  <td nowrap="nowrap"><?= $data['kode']; ?></td>
+                                  <td nowrap="nowrap"><?= $data['nama_produk']; ?></td>
+                                  <td nowrap="nowrap"><?= $data['kategori']; ?></td>
+                                  <td nowrap="nowrap"><?= $data['harga_satuan']; ?></td>
+                                  <td nowrap="nowrap"><?= $data['jumlah_stok']; ?></td>
+                                </tr>
+                              <?php endforeach; ?>
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
                     </div>
                   </div>

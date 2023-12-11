@@ -9,7 +9,7 @@
           <div class="row mb-2">
             <div class="col d-flex justify-content-between">
               <h3><?= $title; ?></h3>
-              <div class="path d-flex align-items-center">
+              <div class="path d-none d-sm-flex align-items-center">
                 <div>
                   <ol class="breadcrumb my-0 ms-2">
                     <li class="breadcrumb-item active">
@@ -25,7 +25,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-8">
+            <div class="col-12 col-lg-8">
               <div class="card mb-3 rounded-0">
                 <div class="card-body">
 
@@ -34,7 +34,7 @@
 
                   <form method="post" id="formList">
                     <div class="row">
-                      <div class="col">
+                      <div class="col-12 col-lg">
                         <div class="mb-3">
                           <label for="produk" class="form-label">Pilih Produk</label>
                           <select class="form-select" aria-label="Default select example" name="produk" id="produk" required>
@@ -45,13 +45,13 @@
                           </select>
                         </div>
                       </div>
-                      <div class="col">
+                      <div class="col-12 col-lg">
                         <div class="mb-3">
                           <label for="harga" class="form-label">Harga Satuan</label>
                           <input type="text" class="form-control" id="harga" name="harga" readonly>
                         </div>
                       </div>
-                      <div class="col">
+                      <div class="col-12 col-lg">
                         <div class="mb-3">
                           <label for="qty" class="form-label">Qty</label>
                           <input type="text" class="form-control" placeholder="Qty" id="qty" name="qty" required>
@@ -62,7 +62,7 @@
                     <div class="row">
                       <div class="col">
                         <div class="modal-footer mb-4 d-flex justify-content-start">
-                          <button class="btn btn-primary btn-sm px-3" type="button" id="submit_list">Tambah</button>
+                          <button class="btn btn-primary btn-sm px-3" type="button" id="submit_list">Tambah<i class="cil-plus icon ms-1"></i></button>
                         </div>
                       </div>
                     </div>
@@ -75,15 +75,15 @@
                           <div class="label mb-2">
                             List Item Produk
                           </div>
-                          <div class="tab-pane active preview" role="tabpanel" id="preview-557">
+                          <div class="tab-pane active preview table-responsive" role="tabpanel" id="preview-557">
                             <table class="table table-hover">
                               <thead>
                                 <tr>
-                                  <th scope="col">Nama Produk</th>
-                                  <th scope="col">Harga Satuan</th>
-                                  <th scope="col">Qty</th>
-                                  <th scope="col">Total</th>
-                                  <th scope="col" class="text-center">Opsi</th>
+                                  <th scope="col" nowrap="nowrap">Nama Produk</th>
+                                  <th scope="col" nowrap="nowrap">Harga Satuan</th>
+                                  <th scope="col" nowrap="nowrap">Qty</th>
+                                  <th scope="col" nowrap="nowrap">Total</th>
+                                  <th scope="col" nowrap="nowrap" class="text-center">Opsi</th>
                                 </tr>
                               </thead>
 
@@ -110,7 +110,7 @@
 
             </div>
 
-            <div class="col">
+            <div class="col-12 col-lg">
               <div class="card mb-3 rounded-0">
                 <div class="card-body">
                   <div class="row">

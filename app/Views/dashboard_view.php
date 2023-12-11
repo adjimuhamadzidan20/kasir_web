@@ -18,7 +18,7 @@
                   <div>
                     <div class="fs-4 fw-semibold"><?= $jumlahKategori; ?> Data
                       <svg class="icon">
-                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-notes"></use>
+                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-list-rich"></use>
                       </svg>
                     </div>
                     <div>Jenis Kategori</div>
@@ -46,7 +46,7 @@
                   <div>
                     <div class="fs-4 fw-semibold"><?= $jumlahProduk; ?> Data
                       <svg class="icon">
-                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-notes"></use>
+                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-storage"></use>
                       </svg>
                     </div>
                     <div>Produk Barang</div>
@@ -74,7 +74,7 @@
                   <div>
                     <div class="fs-4 fw-semibold">Rp. <?= $jumlahPemasukan; ?>
                       <svg class="icon">
-                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-notes"></use>
+                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-money"></use>
                       </svg>
                     </div>
                     <div>Total Pemasukan</div>
