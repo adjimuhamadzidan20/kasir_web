@@ -34,7 +34,7 @@
               <td><?= $data['kode']; ?></td>
               <td><?= $data['nama_produk']; ?></td>
               <td><?= $data['kategori']; ?></td>
-              <td><?= $data['harga_satuan']; ?></td>
+              <td><?= 'Rp '. number_format($data['harga_satuan']); ?></td>
               <td><?= $data['jumlah_stok']; ?></td>
             </tr>
           <?php endforeach; ?>

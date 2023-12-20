@@ -72,7 +72,7 @@
                                 <td nowrap="nowrap"><?= $data['kode']; ?></td>
                                 <td nowrap="nowrap"><?= $data['nama_produk']; ?></td>
                                 <td nowrap="nowrap"><?= $data['kategori']; ?></td>
-                                <td nowrap="nowrap"><?= $data['harga_satuan']; ?></td>
+                                <td nowrap="nowrap"><?= 'Rp '. number_format($data['harga_satuan']); ?></td>
                                 <td nowrap="nowrap"><?= $data['jumlah_stok']; ?></td>
                                 <td nowrap="nowrap" class="text-center">
                                   <a href="/edit_produk/<?= $data['id_produk']; ?>" class="btn btn-primary btn-sm"><i class="cil-color-border icon me-1"></i>Edit</a>

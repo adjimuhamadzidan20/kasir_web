@@ -24,16 +24,18 @@ class LaporanPemasukan extends BaseController
 
         if ($bulan || $tahun) {
             $hasil = $this->pemasukanModel->filterPemasukan($bulan, $tahun);
-            $total = array_sum(array_column($hasil, 'jumlah_nominal'));    
+            $total = array_sum(array_column($hasil, 'jumlah_nominal'));
+            $totalRupiah = number_format($total);    
         } else {
             $hasil = $this->pemasukanModel->fetchPemasukan();
             $total = array_sum(array_column($hasil, 'jumlah_nominal'));
+            $totalRupiah = number_format($total); 
         }
 
         $data = [
             'title' => 'Laporan Pemasukan',
             'pemasukan' => $hasil,
-            'total' => $total
+            'total' => $totalRupiah
         ];
 
         echo view('section/header', $data);
@@ -60,16 +62,18 @@ class LaporanPemasukan extends BaseController
 
         if ($bulan || $tahun) {
             $hasil = $this->pemasukanModel->filterPemasukan($bulan, $tahun);
-            $total = array_sum(array_column($hasil, 'jumlah_nominal'));    
+            $total = array_sum(array_column($hasil, 'jumlah_nominal'));
+            $totalRupiah = number_format($total);     
         } else {
             $hasil = $this->pemasukanModel->fetchPemasukan();
             $total = array_sum(array_column($hasil, 'jumlah_nominal'));
+            $totalRupiah = number_format($total); 
         }
 
         $data = [
             'title' => 'Laporan Pemasukan',
             'pemasukan' => $hasil,
-            'total' => $total
+            'total' => $totalRupiah
         ];
 
         echo view('section/header', $data);
@@ -97,17 +101,20 @@ class LaporanPemasukan extends BaseController
                 ->setCellValue('A1', 'Laporan Data Pemasukan')
                 ->setCellValue('A2', $tgl1)
                 ->setCellValue('A3', 'Total '. $total)
-                ->setCellValue('A5', 'Tanggal Pemasukan')
-                ->setCellValue('B5', 'Bulan Pemasukan')
-                ->setCellValue('C5', 'Nominal');
+                ->setCellValue('A5', 'No')
+                ->setCellValue('B5', 'Tanggal Pemasukan')
+                ->setCellValue('C5', 'Bulan Pemasukan')
+                ->setCellValue('D5', 'Nominal');
 
         $column = 6;
+        $no = 1;
         // tulis data mobil ke cell
         foreach($hasil as $data) {
             $this->fileExcel->setActiveSheetIndex(0)
-                        ->setCellValue('A' . $column, $data['tanggal_pemasukan'])
-                        ->setCellValue('B' . $column, $data['bulan_pemasukan'])
-                        ->setCellValue('C' . $column, $data['jumlah_nominal']);
+                        ->setCellValue('A' . $column, $no++)
+                        ->setCellValue('B' . $column, $data['tanggal_pemasukan'])
+                        ->setCellValue('C' . $column, $data['bulan_pemasukan'])
+                        ->setCellValue('D' . $column, $data['jumlah_nominal']);
             $column++;
         }
 

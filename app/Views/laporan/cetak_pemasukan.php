@@ -34,7 +34,7 @@
               <td><?= $no; ?></td>
               <td><?= $data['tanggal_pemasukan']; ?></td>
               <td><?= $data['bulan_pemasukan']; ?></td>
-              <td><?= $data['jumlah_nominal']; ?></td>
+              <td><?= 'Rp '. number_format($data['jumlah_nominal']); ?></td>
             </tr>
           <?php endforeach; ?>
         </tbody>

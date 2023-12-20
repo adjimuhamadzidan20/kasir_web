@@ -109,7 +109,7 @@
                                   <td nowrap="nowrap"><?= $no; ?></td>
                                   <td nowrap="nowrap"><?= $data['tanggal_pemasukan']; ?></td>
                                   <td nowrap="nowrap"><?= $data['bulan_pemasukan']; ?></td>
-                                  <td nowrap="nowrap"><?= $data['jumlah_nominal']; ?></td>
+                                  <td nowrap="nowrap"><?= 'Rp '. number_format($data['jumlah_nominal']); ?></td>
                                 </tr>
                               <?php endforeach; ?>
                             </tbody>

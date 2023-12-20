@@ -85,7 +85,7 @@
                                   <td nowrap="nowrap"><?= $data['kode']; ?></td>
                                   <td nowrap="nowrap"><?= $data['nama_produk']; ?></td>
                                   <td nowrap="nowrap"><?= $data['kategori']; ?></td>
-                                  <td nowrap="nowrap"><?= $data['harga_satuan']; ?></td>
+                                  <td nowrap="nowrap"><?= 'Rp '. number_format($data['harga_satuan']); ?></td>
                                   <td nowrap="nowrap"><?= $data['jumlah_stok']; ?></td>
                                 </tr>
                               <?php endforeach; ?>

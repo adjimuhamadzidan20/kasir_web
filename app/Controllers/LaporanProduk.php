@@ -78,21 +78,24 @@ class LaporanProduk extends BaseController
         $this->fileExcel->setActiveSheetIndex(0)
                 ->setCellValue('A1', 'Laporan Data Produk')
                 ->setCellValue('A2', $tgl1)
-                ->setCellValue('A4', 'Kode')
-                ->setCellValue('B4', 'Nama Produk')
-                ->setCellValue('C4', 'Kategori')
-                ->setCellValue('D4', 'Harga Satuan')
-                ->setCellValue('E4', 'Jumlah Stok');
+                ->setCellValue('A4', 'No')
+                ->setCellValue('B4', 'Kode')
+                ->setCellValue('C4', 'Nama Produk')
+                ->setCellValue('D4', 'Kategori')
+                ->setCellValue('E4', 'Harga Satuan')
+                ->setCellValue('F4', 'Jumlah Stok');
 
         $column = 5;
+        $no = 1;
         // tulis data mobil ke cell
         foreach($hasil as $data) {
             $this->fileExcel->setActiveSheetIndex(0)
-                        ->setCellValue('A' . $column, $data['kode'])
-                        ->setCellValue('B' . $column, $data['nama_produk'])
-                        ->setCellValue('C' . $column, $data['kategori'])
-                        ->setCellValue('D' . $column, $data['harga_satuan'])
-                        ->setCellValue('E' . $column, $data['jumlah_stok']);
+                        ->setCellValue('A' . $column, $no++)
+                        ->setCellValue('B' . $column, $data['kode'])
+                        ->setCellValue('C' . $column, $data['nama_produk'])
+                        ->setCellValue('D' . $column, $data['kategori'])
+                        ->setCellValue('E' . $column, $data['harga_satuan'])
+                        ->setCellValue('F' . $column, $data['jumlah_stok']);
             $column++;
         }
 

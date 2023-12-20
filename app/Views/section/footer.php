@@ -21,6 +21,14 @@
   <script>
     new DataTable('#example');
 
+    // merubah nominal jadi rupiah
+    const konvertRupiah = (nominal) => {
+      return Intl.NumberFormat("id-ID", {
+        style: 'decimal',
+        currency: 'IDR'
+      }).format(nominal);
+    }
+
     // fungsi memunculkan harga
     $(document).ready(function () {
       $('#harga').val(0);
@@ -63,9 +71,9 @@
             for (let i = 0; i < data.length; i++) {
               html += '<tr>' +
                 '<td nowrap="nowrap">' + data[i].nama_produk + '</td>' +
-                '<td nowrap="nowrap">' + data[i].harga + '</td>' +
+                '<td nowrap="nowrap">Rp ' + konvertRupiah(data[i].harga) + '</td>' +
                 '<td nowrap="nowrap">' + data[i].qty + '</td>' +
-                '<td nowrap="nowrap">' + data[i].total + '</td>' +
+                '<td nowrap="nowrap">Rp ' + konvertRupiah(data[i].total) + '</td>' +
                 '<td nowrap="nowrap" style="text-align: center;">' +
                   '<button type="button" id="hapus" class="btn btn-primary btn-sm" data-id="' + data[i].id_transaksi + '"><i class="cil-trash icon me-1"></i>Hapus</button>' +
                 '</td>' +
@@ -141,9 +149,9 @@
       let tabelUpdate = '';
       tabelUpdate += '<tr>' +
                   '<td nowrap="nowrap">' + data.nama_produk + '</td>' +
-                  '<td nowrap="nowrap">' + data.harga + '</td>' +
+                  '<td nowrap="nowrap">Rp ' + konvertRupiah(data.harga) + '</td>' +
                   '<td nowrap="nowrap">' + data.qty + '</td>' +
-                  '<td nowrap="nowrap">' + data.total + '</td>' +
+                  '<td nowrap="nowrap">Rp ' + konvertRupiah(data.total) + '</td>' +
                   '<td nowrap="nowrap" style="text-align: center;">' +
                     '<button type="submit" id="hapus" class="btn btn-primary btn-sm" data-id="' + data.id_transaksi + '">Hapus</button>' +
                   '</td>' +
@@ -159,9 +167,10 @@
         url: '<?= base_url('transaksi/jumlahTotal'); ?>',
         dataType: 'json',
         success: function(data) { 
-          let hasil = data.jumlah;
+          hasil = data.jumlah;
+          let hasilrupiah = konvertRupiah(hasil);
           // console.log(hasil)
-          $('#jumlah').text(hasil);
+          $('#jumlah').text(hasilrupiah);
         },
         error: function() {
           console.log('Gagal hitung jumlah.');
@@ -171,7 +180,7 @@
 
     // mengecek pembayaran
     $('#cek_bayar').on('click', function() {
-      let total = $('#jumlah').text();
+      let total = hasil;
       let tunai = $('#tunai').val();
       let jumlah = tunai - total;
       let totalInt = parseInt(total);
@@ -202,10 +211,10 @@
         }, 1500);
       } 
       else if (tunaiInt > totalInt || tunaiInt == totalInt) {
-        $('#kembalian').text(jumlah);
-        $('#total_jumlah').text(total);
-        $('#tunai_pembayaran').text(tunai);
-        $('#tunai_kembali').text(jumlah);
+        $('#kembalian').text(konvertRupiah(jumlah));
+        $('#total_jumlah').text(konvertRupiah(total));
+        $('#tunai_pembayaran').text(konvertRupiah(tunai));
+        $('#tunai_kembali').text(konvertRupiah(jumlah));
 
         $('#popup_bayar').modal('show');
 
