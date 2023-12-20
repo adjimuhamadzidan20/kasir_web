@@ -45,7 +45,7 @@
 
                       <strong><i class="fas fa-pencil-alt mr-1"></i> Password</strong>
                       <p class="mt-2">
-                        <a href="/profile/ganti_password" class="btn btn-primary btn-sm">Ganti Password</a>
+                        <a href="/profile/ganti_password" class="btn btn-primary">Ganti Password</a>
                       </p>
                     </div>
                   </div>

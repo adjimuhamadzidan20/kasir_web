@@ -37,9 +37,8 @@ class DatakategoriModel extends Model
         return $this->insert($dataKat);
     }
 
-    public function updateKategori($id, $kode, $kategori) {
+    public function updateKategori($id, $kategori) {
         $dataKat = [
-            'kode' => $kode,
             'kategori' => $kategori
         ];
         return $this->update($id, $dataKat);

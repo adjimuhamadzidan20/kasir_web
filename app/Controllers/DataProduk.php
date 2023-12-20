@@ -67,12 +67,11 @@ class DataProduk extends BaseController
     }
 
     public function edit($id) {
-        $kode = $this->request->getPost('kode');
         $produk = $this->request->getPost('namaproduk');
         $kategori = $this->request->getPost('kategori');
         $harga = $this->request->getPost('hargasatuan');
         $jumlah = $this->request->getPost('jumlahstok');
-        $res = $this->produkModel->updateProduk($id, $kode, $produk, $kategori, $harga, $jumlah);
+        $res = $this->produkModel->updateProduk($id, $produk, $kategori, $harga, $jumlah);
         
         if ($res) {
             $pesan = 'Produk berhasil terubah!';

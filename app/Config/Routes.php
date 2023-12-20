@@ -34,9 +34,15 @@ $routes->get('/laporan_produk', 'LaporanProduk::laporanproduk', ['filter' => 'ad
 $routes->get('/laporan_pemasukan', 'LaporanPemasukan::laporanpemasukan', ['filter' => 'administrator']);
 
 // dengan parameter
-$routes->get('/laporan_pemasukan/cetakLapPemasukan/(:any)/(:any)', 'LaporanPemasukan::cetakLapPemasukan/$1/$1', ['filter' => 'administrator']);
-$routes->get('/laporan_produk/cetakLapProduk/(:any)', 'LaporanProduk::cetakLapProduk/$1', ['filter' => 'administrator']);
+$routes->get('/laporan_pemasukan/cetakLapPemasukanPdf/(:any)/(:any)', 'LaporanPemasukan::cetakLapPemasukanPdf/$1/$1', ['filter' => 'administrator']);
+$routes->get('/laporan_pemasukan/cetakLapPemasukanExcel/(:any)/(:any)', 'LaporanPemasukan::cetakLapPemasukanExcel/$1/$1', ['filter' => 'administrator']);
+
+$routes->get('/laporan_produk/cetakLapProdukPdf/(:any)', 'LaporanProduk::cetakLapProdukPdf/$1', ['filter' => 'administrator']);
+$routes->get('/laporan_produk/cetakLapProdukExcel/(:any)', 'LaporanProduk::cetakLapProdukExcel/$1', ['filter' => 'administrator']);
 
 // tanpa parameter
-$routes->get('/laporan_pemasukan/cetakLapPemasukan//', 'LaporanPemasukan::cetakLapPemasukan//', ['filter' => 'administrator']);
-$routes->get('/laporan_produk/cetakLapProduk/', 'LaporanProduk::cetakLapProduk/', ['filter' => 'administrator']);
+$routes->get('/laporan_pemasukan/cetakLapPemasukanPdf//', 'LaporanPemasukan::cetakLapPemasukanPdf//', ['filter' => 'administrator']);
+$routes->get('/laporan_pemasukan/cetakLapPemasukanExcel//', 'LaporanPemasukan::cetakLapPemasukanExcel//', ['filter' => 'administrator']);
+
+$routes->get('/laporan_produk/cetakLapProdukPdf/', 'LaporanProduk::cetakLapProdukPdf/', ['filter' => 'administrator']);
+$routes->get('/laporan_produk/cetakLapProdukExcel', 'LaporanProduk::cetakLapProdukExcel', ['filter' => 'administrator']);

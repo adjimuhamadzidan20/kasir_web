@@ -50,13 +50,6 @@
       // Bootstrap ID
       gtag('config', 'UA-118965717-5');
     </script>
-
-    <style type="text/css">
-      .background {
-        background-image: url('assets/img/background_login.jpg');
-        background-size: cover;
-      }
-    </style>
   </head>
   <body>
     <div class="bg-light min-vh-100 d-flex flex-row align-items-center px-4 px-sm-0">
@@ -104,7 +97,7 @@
                   </form>
                 </div>
               </div>
-              <div class="card col-md-5 text-white bg-primary py-5 background">
+              <div class="card col-md-5 text-white bg-primary py-5">
                 <div class="card-body text-left d-flex align-items-center">
                   <div>
                     <h2>E-Kasir</h2>

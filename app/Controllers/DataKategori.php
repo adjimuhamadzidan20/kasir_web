@@ -57,9 +57,8 @@ class DataKategori extends BaseController
     }
 
     public function edit($id) {
-        $kode = $this->request->getPost('kategori');
         $kategori = $this->request->getPost('kategori');
-        $res = $this->kategoriModel->updateKategori($id, $kode, $kategori);
+        $res = $this->kategoriModel->updateKategori($id, $kategori);
         
         if ($res) {
             $pesan = 'Kategori berhasil terubah!';

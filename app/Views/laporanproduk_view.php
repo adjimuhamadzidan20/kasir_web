@@ -39,8 +39,8 @@
                         $jenis = "";
                       }
                     ?>
-                    <a href="/laporan_produk/cetakLapProduk/<?= $jenis; ?>" class="btn btn-primary btn-sm" target="__blank">Print PDF</a>
-                    <button type="submit" class="btn btn-primary btn-sm" data-coreui-toggle="modal" data-coreui-target="#exampleModalLive">Print Excel</button>
+                    <a href="/laporan_produk/cetakLapProdukPdf/<?= $jenis; ?>" class="btn btn-primary" target="__blank">Print PDF</a>
+                    <a href="/laporan_produk/cetakLapProdukExcel/<?= $jenis; ?>" class="btn btn-primary">Print Excel</a>
                   </div>
                 </div>
                 <div class="card-body">

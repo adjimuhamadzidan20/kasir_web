@@ -28,7 +28,7 @@
             <div class="col">
               <div class="card mb-4 rounded-0">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                  <button type="button" class="btn btn-primary btn-sm px-3" data-coreui-toggle="modal" data-coreui-target="#tambahKategori">Tambah<i class="cil-plus icon ms-1"></i></button>
+                  <button type="button" class="btn btn-primary px-3" data-coreui-toggle="modal" data-coreui-target="#tambahKategori">Tambah<i class="cil-plus icon ms-1"></i></button>
                   <span class="d-none d-sm-flex">Tabel Data Kategori</span>
                 </div>
                 <div class="card-body">                  

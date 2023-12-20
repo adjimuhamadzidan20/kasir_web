@@ -62,7 +62,7 @@
                     <div class="row">
                       <div class="col">
                         <div class="modal-footer mb-4 d-flex justify-content-start">
-                          <button class="btn btn-primary btn-sm px-3" type="button" id="submit_list">Tambah<i class="cil-plus icon ms-1"></i></button>
+                          <button class="btn btn-primary px-3" type="button" id="submit_list">Tambah<i class="cil-plus icon ms-1"></i></button>
                         </div>
                       </div>
                     </div>
@@ -100,7 +100,7 @@
                   <div class="row">
                     <div class="col">
                       <div class="modal-footer mb-3 d-flex justify-content-start">
-                        <button class="btn btn-primary btn-sm px-3" type="button" id="jumlah_total">Hitung Total</button>
+                        <button class="btn btn-primary px-3" type="button" id="jumlah_total">Hitung Total</button>
                       </div>
                     </div>
                   </div>
@@ -125,7 +125,7 @@
                           <input type="text" class="form-control" id="tunai" placeholder="Tunai pembayaran" name="tunai" required>
                         </div>
                         <div class="modal-footer d-flex justify-content-start">
-                          <button class="btn btn-primary btn-sm px-3" type="button" id="cek_bayar">Cek pembayaran</button>
+                          <button class="btn btn-primary px-3" type="button" id="cek_bayar">Cek pembayaran</button>
                         </div>
                       </form>
                       <div class="mt-4">

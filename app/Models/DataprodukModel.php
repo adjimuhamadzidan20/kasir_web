@@ -47,9 +47,8 @@ class DataprodukModel extends Model
         return $this->insert($dataPro);
     }
 
-    public function updateProduk($id, $kode, $produk, $kategori, $harga, $jumlah) {
+    public function updateProduk($id, $produk, $kategori, $harga, $jumlah) {
         $dataPro = [
-            'kode_produk' => $kode,
             'nama_produk' => $produk,
             'id_kategori' => $kategori,
             'harga_satuan' => $harga,
