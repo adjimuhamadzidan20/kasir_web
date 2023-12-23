@@ -117,7 +117,7 @@
                     <div class="col">
                       <div class="mb-4">
                         <label class="form-label">Jumlah Total</label>
-                        <h2>Rp. <span id="jumlah"></span></h2>
+                        <h2>Rp <span id="jumlah"></span></h2>
                       </div>
                       <form method="post" id="pembayaran">
                         <div class="mb-3">
@@ -130,7 +130,7 @@
                       </form>
                       <div class="mt-4">
                         <label class="form-label">Kembalian</label>
-                        <h2>Rp. <span id="kembalian"></span></h2>
+                        <h2>Rp <span id="kembalian"></span></h2>
                       </div>
                     </div>
                   </div>
@@ -156,7 +156,7 @@
                   <p>Jumlah Total Belanja</p>
                 </div>
                 <div class="col">
-                  <p>:  Rp. <span id="total_jumlah"></span></p>
+                  <p>:  Rp <span id="total_jumlah"></span></p>
                 </div>
               </div>
               <div class="row">
@@ -164,7 +164,7 @@
                   <p>Nominal Pembayaran</p>
                 </div>
                 <div class="col">
-                  <p>:  Rp. <span id="tunai_pembayaran"></span></p>
+                  <p>:  Rp <span id="tunai_pembayaran"></span></p>
                 </div>
               </div>
               <div class="row">
@@ -172,7 +172,7 @@
                  <p>Tunai Kembali</p>
                 </div>
                 <div class="col">
-                  <p>:  Rp. <span id="tunai_kembali"></span></p>
+                  <p>:  Rp <span id="tunai_kembali"></span></p>
                 </div>
               </div>
             </div>

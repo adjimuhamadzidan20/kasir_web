@@ -70,7 +70,30 @@
                                 <td nowrap="nowrap"><?= $data['kategori']; ?></td>
                                 <td nowrap="nowrap" class="text-center">
                                   <a href="/edit_kategori/<?= $data['id_kategori']; ?>" class="btn btn-primary btn-sm"><i class="cil-color-border icon me-1"></i>Edit</a>
-                                  <a href="/hapus_kategori/<?= $data['id_kategori']; ?>" class="btn btn-primary btn-sm"><i class="cil-trash icon me-1"></i>Hapus</a>
+
+                                  <button type="button" class="btn btn-primary btn-sm" data-coreui-toggle="modal" data-coreui-target="#hapusdata<?= $data['id_kategori']; ?>"><i class="cil-trash icon me-1"></i>Hapus</button>
+
+                                  <!-- Modal hapus -->
+                                  <div class="modal fade" id="hapusdata<?= $data['id_kategori']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLabel">Hapus data kategori</h5>
+                                          <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body" style="text-align: left !important;">
+                                          Anda yakin ingin menghapusnya?
+                                        </div>
+                                        <div class="modal-footer">
+                                          <form action="/hapus_kategori/<?= $data['id_kategori']; ?>">
+                                            <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Batal</button>
+                                            <button type="submit" class="btn btn-primary">Hapus</button>
+                                          </form>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
                                 </td>
                               </tr>
                             <?php endforeach; ?>

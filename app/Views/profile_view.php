@@ -34,14 +34,14 @@
                       </div>
 
                       <h4 class="profile-username text-center"><?= session()->get('admin'); ?></h4>
-                      <p class="text-muted text-center">Administrator</p>
+                      <p class="text-center">Administrator</p>
                     </div>
                     <div class="col-lg-9">
                       <strong><i class="fas fa-book mr-1"></i> Nama Admin</strong>
-                      <p class="text-muted"><?= session()->get('admin'); ?></p>
+                      <p><?= session()->get('admin'); ?></p>
 
                       <strong><i class="fas fa-map-marker-alt mr-1"></i> Username</strong>
-                      <p class="text-muted"><?= session()->get('user'); ?></p>
+                      <p><?= session()->get('user'); ?></p>
 
                       <strong><i class="fas fa-pencil-alt mr-1"></i> Password</strong>
                       <p class="mt-2">

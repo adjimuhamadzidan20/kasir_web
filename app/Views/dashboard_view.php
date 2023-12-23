@@ -72,7 +72,7 @@
               <div class="card mb-4 text-white bg-primary">
                 <div class="card-body pb-0 d-flex justify-content-between align-items-start">
                   <div>
-                    <div class="fs-4 fw-semibold">Rp. <?= $jumlahPemasukan; ?>
+                    <div class="fs-4 fw-semibold">Rp <?= number_format($jumlahPemasukan); ?>
                       <svg class="icon">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-money"></use>
                       </svg>
