@@ -3,14 +3,14 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\loginModel;
+use App\Models\LoginModel;
 
 class Lockscreen extends BaseController
 {
     protected $loginModel;
 
     public function __construct() {
-        $this->loginModel = new loginModel();
+        $this->loginModel = new LoginModel();
     }
 
     public function lock()

@@ -13,7 +13,7 @@ class DataKategori extends BaseController
         $this->kategoriModel = new DatakategoriModel();
     }
 
-    public function datakategori()
+    public function index()
     {
         $data = [
             'title' => 'Kategori',
@@ -26,7 +26,7 @@ class DataKategori extends BaseController
         echo view('section/footer');
     }
 
-    public function tambah() {
+    public function tambahkategori() {
         $kode = 'KAT0';
         $kategori = $this->request->getPost('kategori');
         $res = $this->kategoriModel->addKategori($kode, $kategori);

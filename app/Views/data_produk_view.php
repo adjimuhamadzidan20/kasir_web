@@ -121,7 +121,7 @@
                   <h5 class="modal-title" id="exampleModalLiveLabel">Tambah data produk</h5>
                   <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="/dataproduk/tambah" method="post">
+                <form action="/dataproduk/tambahproduk" method="post">
                   <div class="modal-body">
                     <div class="mb-3">
                       <label for="exampleFormControlInput1" class="form-label">Nama Produk</label>

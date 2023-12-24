@@ -16,7 +16,7 @@ class DataProduk extends BaseController
         $this->kategoriModel = new DatakategoriModel();
     }
 
-    public function dataproduk()
+    public function index()
     {
         $data = [
             'title' => 'Produk',
@@ -30,7 +30,7 @@ class DataProduk extends BaseController
         echo view('section/footer');
     }
 
-    public function tambah() {
+    public function tambahproduk() {
         $kode = 'PR0';
         $produk = $this->request->getPost('namaproduk');
         $kategori = $this->request->getPost('kategori');
